@@ -19,7 +19,7 @@
         <param name="downsample_res" value="0.1"/>         
         <param name="map_offset_x" value="0.0"/>   
         <param name="map_offset_y" value="0.0"/>   
-        <param name="map_offset_z" value="0.0"/>   
+        <param name="map_offset_z" value="0.0"/>
    </node>
 
     <group if="$(arg use_gpu_)">
@@ -28,7 +28,7 @@
                 <param name="downsample_res" value="0.1"/>         
                 <param name="map_offset_x" value="0.0"/>   
                 <param name="map_offset_y" value="0.0"/>   
-                <param name="map_offset_z" value="0.0"/>   
+                <param name="map_offset_z" value="0.0"/>
         </node>  
     </group>
     <group unless="$(arg use_gpu_)">
@@ -37,7 +37,7 @@
                 <param name="downsample_res" value="$(arg downsample_resolution)"/>
                 <param name="map_offset_x" value="0.0"/>   
                 <param name="map_offset_y" value="0.0"/>   
-                <param name="map_offset_z" value="0.0"/>   
+                <param name="map_offset_z" value="0.0"/>
         </node>  
     </group>
 
