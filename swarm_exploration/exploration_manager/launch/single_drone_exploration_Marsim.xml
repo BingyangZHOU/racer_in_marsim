@@ -22,7 +22,7 @@
     <arg name="use_gpu_" value="false"/>
     <arg name="frame_id" value="world"/>
     <arg name="global_cloud_topic" value="/map_generator/global_cloud"/>
-    <arg name="odom_topic" value="/quad_$(arg drone_id)/lidar_slam/odom"/>
+<!--    <arg name="odom_topic" value="/lidar_slam/odom"/>-->
     <arg name="map_name" value="$(find map_generator)/resource/small_forest01cutoff.pcd"/>
     <arg name="downsample_resolution" value="0.1"/>
     <arg name="use_uav_extra_model" value = "1"/>
@@ -70,7 +70,7 @@
     <remap from="/planning/new" to="/planning/new_$(arg drone_id)" />
     
 <!--    <remap from="/position_cmd" to="planning/pos_cmd_$(arg drone_id)"/>-->
-      <remap from="/position_cmd" to="planning/pos_cmd"/>
+    <remap from="/position_cmd" to="planning/pos_cmd_$(arg drone_id)"/>
     <remap from="planning/position_cmd_vis" to="planning/position_cmd_vis_$(arg drone_id)" />
     <remap from="planning/travel_traj" to="planning/travel_traj_$(arg drone_id)" />
 
@@ -103,7 +103,7 @@
   <!-- <include file="$(find inf_uwb_ros)/launch/uwb_node_sim.launch" if="$(arg simulation)">
     <arg name="self_id" value="$(arg drone_id)"/>
   </include> -->
-    <include file="$(find test_interface)/launch/single_drone_with_fuel.xml">
+    <include file="$(find test_interface)/launch/single_drone_with_racer.xml">
         <arg name="drone_id" value="$(arg drone_id)"/>
         <arg name="uav_num_" value="$(arg drone_num)"/>
         <arg name="lidar_type" value="avia"/>
@@ -113,7 +113,7 @@
         <arg name="init_yaw" value="$(arg init_yaw)"/>
         <arg name="map_name_" value="$(arg map_name)"/>
         <arg name="downsample_resolution_" value="$(arg downsample_resolution)"/>
-        <arg name="odom_topic" value="$(arg odom_topic)"/>
+        <arg name="odom_topic" value="/lidar_slam/odom"/>
         <arg name="use_gpu" value="$(arg use_gpu_)"/>
         <arg name="use_uav_extra_model_" value="$(arg use_uav_extra_model)"/>
     </include>

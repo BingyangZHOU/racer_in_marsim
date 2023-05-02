@@ -49,7 +49,8 @@
 
 <!--   <include file="$(find exploration_manager)/launch/rviz_1.launch"> -->
 <!--   </include> -->
-<include file="$(find exploration_manager)/launch/single_drone_exploration_1.xml">
+
+<include file="$(find exploration_manager)/launch/single_drone_exploration_Marsim.xml">
     <arg name="drone_id" value="1"/>
     <arg name="init_x"   value="0"/>
     <arg name="init_y"   value="0"/>
@@ -62,7 +63,7 @@
     <arg name="simulation" default="true"/>
   </include>
 
-  <include file="$(find exploration_manager)/launch/single_drone_exploration_1.xml">
+  <include file="$(find exploration_manager)/launch/single_drone_exploration_Marsim.xml">
     <arg name="drone_id" value="2"/>
     <arg name="init_x"   value="0.3"/>
     <arg name="init_y"   value="0"/>
