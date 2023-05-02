@@ -1,3 +1,5 @@
+# Try RACER
+roslaunch  roslaunch exploration_manager swarm_exploration_marsim.launch 
 # MARSIM
 MARSIM: A light-weight point-realistic simulator for LiDAR-based UAVs
 
