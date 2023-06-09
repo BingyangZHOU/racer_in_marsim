@@ -5,9 +5,9 @@
     <arg name="init_y" default="0"/>
     <arg name="init_z" default="0"/>
     <arg name="init_yaw" default="0.0"/>
-    <arg name="map_size_x" default="22"/>
-    <arg name="map_size_y" default="22"/>
-    <arg name="map_size_z" default="3.5"/>
+    <arg name="map_size_x" default="50"/>
+    <arg name="map_size_y" default="50"/>
+    <arg name="map_size_z" default="10.0"/>
     <arg name="odom_prefix" default="odom"/>
     <arg name="simulation" default="false"/>
     <arg name="odometry_topic" default="$(arg odom_prefix)_$(arg drone_id)"/>
@@ -106,7 +106,7 @@
     <include file="$(find test_interface)/launch/single_drone_with_racer.xml">
         <arg name="drone_id" value="$(arg drone_id)"/>
         <arg name="uav_num_" value="$(arg drone_num)"/>
-        <arg name="lidar_type" value="avia"/>
+        <arg name="lidar_type" value="mid360"/>
         <arg name="init_x_" value="$(arg init_x)"/>
         <arg name="init_y_" value="$(arg init_y)"/>
         <arg name="init_z_" value="$(arg init_z)"/>

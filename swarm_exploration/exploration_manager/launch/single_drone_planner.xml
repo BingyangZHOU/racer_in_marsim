@@ -20,7 +20,7 @@
   <arg name="single_expo" default="false"/>
 
   <!-- main node -->
-  <node pkg="exploration_manager" name="exploration_node_$(arg drone_id)" type="exploration_node" output="log">
+  <node pkg="exploration_manager" name="exploration_node_$(arg drone_id)" type="exploration_node" output="log" respawn="true">
     <remap from ="/odom_world" to="$(arg odometry_topic)"/>
     <remap from ="/map_ros/pose"   to = "$(arg sensor_pose_topic)"/> 
     <remap from ="/map_ros/depth" to = "$(arg depth_topic)"/>
@@ -75,7 +75,7 @@
     <param name="sdf_map/p_max"  value="0.90"/>
     <param name="sdf_map/p_occ"  value="0.80"/>
     <param name="sdf_map/min_ray_length" value="0.5"/>
-    <param name="sdf_map/max_ray_length" value="4.5"/>
+    <param name="sdf_map/max_ray_length" value="10.0"/>
     <param name="sdf_map/virtual_ceil_height"   value="-10"/>
     <param name="sdf_map/optimistic" value="true" type="bool"/>
     <param name="sdf_map/signed_dist" value="false" type="bool"/>
@@ -85,19 +85,43 @@
     <param name="sdf_map/box_max_x" value="4" type="double"/>
     <param name="sdf_map/box_max_y" value="7" type="double"/>
     <param name="sdf_map/box_max_z" value="2.0" type="double"/> -->
-    <param name="sdf_map/box_min_x" value="-7" type="double"/>
+    <!-- <param name="sdf_map/box_min_x" value="-7" type="double"/>
     <param name="sdf_map/box_min_y" value="-15" type="double"/>
     <param name="sdf_map/box_min_z" value="0" type="double"/> 
     <param name="sdf_map/box_max_x" value="7" type="double"/>
     <param name="sdf_map/box_max_y" value="15" type="double"/>
     <param name="sdf_map/box_max_z" value="1.7" type="double"/>
-    <param name="sdf_map/no_drone_1" value="false" type="bool"/>
+    <param name="sdf_map/no_drone_1" value="false" type="bool"/> -->
+
+    <!-- small forest param -->
+    <!-- <param name="sdf_map/box_min_x" value="-25.0" type="double"/>
+    <param name="sdf_map/box_min_y" value="-15.0" type="double"/>
+    <param name="sdf_map/box_min_z" value="-0.3" type="double"/>
+    <param name="sdf_map/box_max_x" value="40" type="double"/>
+    <param name="sdf_map/box_max_y" value="2.0" type="double"/>
+    <param name="sdf_map/box_max_z" value="3.0" type="double"/> -->
+
+    <!-- Library G -->
+    <!-- <param name="sdf_map/box_min_x" value="-17" type="double"/>
+    <param name="sdf_map/box_min_y" value="-31" type="double"/>
+    <param name="sdf_map/box_min_z" value="-2.0" type="double"/>
+    <param name="sdf_map/box_max_x" value="9.5" type="double"/>
+    <param name="sdf_map/box_max_y" value="8.2" type="double"/>
+    <param name="sdf_map/box_max_z" value="5.0" type="double"/> -->
+
+    <!-- Knowles G -->
+    <param name="sdf_map/box_min_x" value="-2.5" type="double"/>
+    <param name="sdf_map/box_min_y" value="-8" type="double"/>
+    <param name="sdf_map/box_min_z" value="-0.5" type="double"/>
+    <param name="sdf_map/box_max_x" value="28.5" type="double"/>
+    <param name="sdf_map/box_max_y" value="27.5" type="double"/>
+    <param name="sdf_map/box_max_z" value="3.5" type="double"/>
 
     <param name="map_ros/cx" value="$(arg cx)"/>
     <param name="map_ros/cy" value="$(arg cy)"/>
     <param name="map_ros/fx" value="$(arg fx)"/>
     <param name="map_ros/fy" value="$(arg fy)"/>
-    <param name="map_ros/depth_filter_maxdist"   value="4.6"/>
+    <param name="map_ros/depth_filter_maxdist"   value="10.0"/>
     <param name="map_ros/depth_filter_mindist"   value="0.2"/>
     <param name="map_ros/depth_filter_margin"    value="2"/>
     <param name="map_ros/k_depth_scaling_factor" value="1000.0"/>
@@ -131,7 +155,7 @@
     <param name="partitioning/consistent_cost" value="-5" type="double"/>;
     <param name="partitioning/consistent_cost2" value="8" type="double"/>;
     <param name="partitioning/w_unknown" value="0.0" type="double"/>;
-    <param name="partitioning/grid_size" value="5.0" type="double"/>;
+    <param name="partitioning/grid_size" value="10.0" type="double"/>;
     <param name="partitioning/use_swarm_tf" value="true" type="bool"/>;
 
     <!-- Exploration manager -->
@@ -153,7 +177,7 @@
     <param name="exploration/drone_id" value="$(arg drone_id)" type="int"/>
     <param name="exploration/init_plan_num" value="2" type="int"/>
 
-    <param name="frontier/cluster_min" value="100" type="int"/>
+    <param name="frontier/cluster_min" value="30" type="int"/>
     <param name="frontier/cluster_size_xy" value="2.0" type="double"/>
     <param name="frontier/cluster_size_z" value="10.0" type="double"/>
     <param name="frontier/min_candidate_dist" value="0.5" type="double"/>

@@ -600,7 +600,7 @@ void renderSensedPoints(const ros::TimerEvent& event)
       {continue;}
       for(int j = 0;j < otheruav_points[i].size();j++)
       {
-        dynamic_input_points.points.push_back(otheruav_points[i][j]);
+        // dynamic_input_points.points.push_back(otheruav_points[i][j]);
       }
       // dynamic_input_points = dynamic_input_points + otheruav_points[i];
     }
